@@ -7,6 +7,7 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 from keras.models import load_model
+from keras import initializers
 
 app = FastAPI()
 

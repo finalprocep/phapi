@@ -1,13 +1,11 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from datetime import datetime, timedelta
-import time
 import requests
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 from keras.models import load_model
-from keras import initializers
 
 app = FastAPI()
 

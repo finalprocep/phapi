@@ -1,6 +1,5 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-import pickle
 from datetime import datetime, timedelta
 import time
 import requests
@@ -24,7 +23,7 @@ app.add_middleware(
 try:
     bit_model = load_model('model.keras')
 except FileNotFoundError:
-    raise FileNotFoundError("Model file not found. Please ensure that 'model.pkl' exists.")
+    raise FileNotFoundError("Model file not found. Please ensure that 'model.keras' exists.")
 
 @app.post('/model_api')
 def predict():

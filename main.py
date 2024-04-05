@@ -7,6 +7,7 @@ import requests
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
+from keras.models import load_model
 
 app = FastAPI()
 
@@ -21,7 +22,7 @@ app.add_middleware(
 )
 
 try:
-    bit_model = pickle.load(open('model.pkl', 'rb'))
+    bit_model = load_model('model.keras')
 except FileNotFoundError:
     raise FileNotFoundError("Model file not found. Please ensure that 'model.pkl' exists.")
 

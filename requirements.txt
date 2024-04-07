@@ -1,6 +1,4 @@
 ﻿fastapi
-httplib2
-matplotlib
 numpy
 pandas
 requests

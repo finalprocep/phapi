@@ -6,5 +6,5 @@ pandas
 requests
 scikit-learn
 uvicorn
-tensorflow-gpu
-keras
+tensorflow-cpu
+keras==3.1.1

@@ -5,7 +5,7 @@ import requests
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
-from keras.models import load_model
+from keras.saving import load_model
 import tensorflow as tf
 
 app = FastAPI()
@@ -26,14 +26,14 @@ try:
 except FileNotFoundError:
     raise FileNotFoundError("Model file not found. Please ensure that 'model.pkl' exists.")
 
-@app.post('/')
+@app.post('/model_api')
 def predict():
 
     scaler=MinMaxScaler(feature_range=(0,1))
     timeinterval=24
     prediction=12
 
-    testapi='https://api.twelvedata.com/time_series?symbol=BTC/INR&interval=5min&outputsize=5000&apikey=e76157c75c3a42649e168c5c206e88ca'
+    testapi='https://api.twelvedata.com/time_series?symbol=BTC/INR&interval=5min&outputsize=288&apikey=e76157c75c3a42649e168c5c206e88ca'
     testdata=requests.get(testapi).json()
     testdatafinal=pd.DataFrame(testdata['values'])
     testinputs=testdatafinal['close'].values
@@ -54,5 +54,4 @@ def predict():
     lastdata=np.reshape(lastdata,(1,lastdata.shape[0],1))
     prediction=model.predict(lastdata)
     prediction=scaler.inverse_transform(prediction)
-    return {"prediction": predict}
-
+    return {"prediction":prediction[0][0]}

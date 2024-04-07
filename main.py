@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from datetime import datetime, timedelta
 import requests
@@ -45,7 +45,7 @@ def predict():
     prediction_price=model.predict(x_test)
     prediction_price=scaler.inverse_transform(prediction_price)
 
-    lastdata=modelinputs[len(modelinputs)+1-timeinterval:len(modelinputs)+1,0]
+    lastdata=modelinputs[len(modelinputs)-timeinterval:len(modelinputs),0]
     lastdata=np.array(lastdata)
     lastdata=np.reshape(lastdata,(1,lastdata.shape[0],1))
     prediction=model.predict(lastdata)

@@ -21,7 +21,7 @@ app.add_middleware(
 )
 
 try:
-    model = load_model('model.h5')
+    model = load_model('model.keras')
 
 except FileNotFoundError:
     raise FileNotFoundError("Model file not found. Please ensure that 'model.pkl' exists.")

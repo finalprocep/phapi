@@ -7,5 +7,5 @@ pandas
 requests
 scikit-learn
 uvicorn
-tensorflow-cpu
+tensorflow==2.16.1
 

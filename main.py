@@ -26,7 +26,7 @@ app.add_middleware(
 # except FileNotFoundError:
 #     raise FileNotFoundError("Model file not found. Please ensure that 'model.pkl' exists.")
 
-@app.post('/')
+@app.get('/')
 def predict():
 
     # scaler=MinMaxScaler(feature_range=(0,1))

@@ -26,7 +26,7 @@ try:
 except FileNotFoundError:
     raise FileNotFoundError("Model file not found. Please ensure that 'model.pkl' exists.")
 
-@app.post('/model_api')
+@app.post('/')
 def predict():
 
     scaler=MinMaxScaler(feature_range=(0,1))

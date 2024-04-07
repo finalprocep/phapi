@@ -1,6 +1,5 @@
 ﻿fastapi
 httplib2
-keras==3.1.1
 matplotlib
 numpy
 pandas
@@ -8,4 +7,4 @@ requests
 scikit-learn
 uvicorn
 tensorflow-gpu
-
+keras==3.1.1
